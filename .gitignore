@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Dataset
+dataset/
+
+# Uploaded images
+uploads/
+
+# Reports
+reports/
+
+# Database
+*.db
+
+# Large AI model
+*.h5
+*.keras

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Predict Waste | AI Waste Classification</title>
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<!-- Font Awesome -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+rel="stylesheet">
+
+<!-- Google Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<!-- CSS -->
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/predict.css') }}">
+
+</head>
+
+<body>
+
+<!-- =========================
+        NAVBAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="/">
+
+<i class="fas fa-recycle"></i>
+
+AI Waste Classifier
+
+</a>
+
+<button class="navbar-toggler"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+
+id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="/">
+
+Home
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link active"
+
+href="/predict">
+
+Predict
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="/dashboard">
+
+Dashboard
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="/history">
+
+History
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link"
+
+href="/about">
+
+About
+
+</a>
+
+</li>
+
+
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================
+        HERO
+========================= -->
+
+<section class="predict-hero">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+
+                <h1>AI Waste Classification</h1>
+
+                <p>
+                    Upload a waste image and our Deep Learning model will automatically
+                    classify the waste category and recommend the correct disposal method.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================
+        UPLOAD CARD
+========================= -->
+
+<section class="upload-section">
+
+<div class="container">
+
+<div class="upload-card">
+
+<h2>
+
+<i class="fas fa-upload"></i>
+
+Upload Waste Image
+
+</h2>
+
+<form
+
+action="/predict"
+
+method="POST"
+
+enctype="multipart/form-data">
+
+<div class="drop-zone">
+
+<i class="fas fa-cloud-upload-alt"></i>
+
+<h4>
+
+Drag & Drop Image Here
+
+</h4>
+
+<p>
+
+or click below to browse
+
+</p>
+
+<input
+
+type="file"
+
+id="image"
+
+name="image"
+
+accept="image/*"
+
+onchange="previewImage(event)"
+
+required>
+
+<label
+
+for="image"
+
+class="choose-btn">
+
+Choose Image
+
+</label>
+
+<p class="file-note">
+
+Supported:
+All image
+
+</p>
+
+</div>
+
+<div class="text-center">
+
+<button
+
+class="predict-btn"
+
+type="submit">
+
+<i class="fas fa-brain"></i>
+
+Predict Waste
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        PREDICTION RESULT
+========================= -->
+
+<section class="result-section">
+
+<div class="container">
+
+<div class="result-card">
+
+<div class="result-title">
+
+<h2>
+
+<i class="fas fa-chart-line"></i>
+
+Prediction Result
+
+</h2>
+
+</div>
+
+<div class="row">
+
+<!-- Image Preview -->
+
+<div class="col-lg-4">
+
+<div class="preview-box">
+
+<img
+
+id="preview"
+
+src="{{ image_path if image_path else '' }}"
+
+class="preview-image"
+
+{% if not image_path %}
+style="display:none;"
+{% endif %}>
+
+<p>
+
+<p>
+
+{% if image_path %}
+
+Uploaded Image
+
+{% else %}
+
+No Image Selected
+
+{% endif %}
+
+</p>
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Prediction Details -->
+
+<div class="col-lg-8">
+
+<table class="table result-table">
+
+<tr>
+
+<th>
+
+<i class="fas fa-recycle text-success"></i>
+
+Waste Type
+
+</th>
+
+<td>
+
+<td>
+
+{{ prediction if prediction else "-" }}
+
+</td>
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+<i class="fas fa-chart-column text-success"></i>
+
+Confidence
+
+</th>
+
+<td>
+
+<td>
+
+{% if confidence %}
+
+{{ confidence }} %
+
+{% else %}
+
+-
+
+{% endif %}
+
+</td>
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+<i class="fas fa-trash text-success"></i>
+
+Recommended Bin
+
+</th>
+
+<td>
+
+<td>
+
+{{ recommendation if recommendation else "-" }}
+
+</td>
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+<i class="fas fa-circle-info text-success"></i>
+
+Description
+
+</th>
+
+<td>
+
+<td>
+
+{{ description if description else "-" }}
+
+</td>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+        JAVASCRIPT
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+function previewImage(event){
+
+const preview=document.getElementById("preview");
+
+preview.src = URL.createObjectURL(event.target.files[0]);
+preview.style.display = "block";
+
+preview.style.display="block";
+
+document.querySelector(".preview-box p").innerHTML="Selected Image";
+
+}
+
+const form=document.querySelector("form");
+
+form.addEventListener("submit",function(){
+
+const btn=document.querySelector(".predict-btn");
+
+btn.innerHTML="<i class='fas fa-spinner fa-spin'></i> Predicting...";
+
+btn.disabled=true;
+
+});
+
+</script>
+
+</body>
+
+</html>

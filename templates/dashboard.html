@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | AI Waste Classifier</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+            NAVBAR
+=========================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="/">
+
+<i class="fas fa-recycle"></i>
+
+AI Waste Classifier
+
+</a>
+
+<button
+class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div
+class="collapse navbar-collapse"
+id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link"
+href="/">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="/predict">Predict</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active"
+href="/dashboard">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="/history">History</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="/about">About</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ===========================
+        HERO
+=========================== -->
+
+<section class="dashboard-hero">
+
+<div class="container">
+
+<div class="text-center">
+
+<h1>
+
+Dashboard
+
+</h1>
+
+<p>
+
+Monitor real-time waste classification statistics,
+AI performance and prediction analytics.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      STATISTICS
+=========================== -->
+
+<section class="stats-section">
+
+<div class="container">
+
+<div class="row g-4">
+
+<!-- Total Predictions -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="stat-card">
+
+<div class="icon green">
+
+<i class="fas fa-image"></i>
+
+</div>
+
+<h5>
+
+Total Predictions
+
+</h5>
+
+<h2>
+
+{{ total_predictions }}
+
+</h2>
+
+<p>
+
+Images Processed
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Accuracy -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="stat-card">
+
+<div class="icon blue">
+
+<i class="fas fa-crosshairs"></i>
+
+</div>
+
+<h5>
+
+AI Accuracy
+
+</h5>
+
+<h2>
+
+{{ average_confidence }}%
+
+</h2>
+
+<p>
+
+Average Confidence
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Categories -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="stat-card">
+
+<div class="icon purple">
+
+<i class="fas fa-trash"></i>
+
+</div>
+
+<h5>
+
+Waste Categories
+
+</h5>
+
+<h2>
+
+10
+
+</h2>
+
+<p>
+
+Supported Classes
+
+</p>
+
+</div>
+
+</div>
+
+<!-- System -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="stat-card">
+
+<div class="icon orange">
+
+<i class="fas fa-server"></i>
+
+</div>
+
+<h5>
+
+System Status
+
+</h5>
+
+<h2>
+
+Online
+
+</h2>
+
+<p>
+
+Running Successfully
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      CHART SECTION
+=========================== -->
+
+<section class="chart-section">
+
+<div class="container">
+
+<div class="row">
+
+<!-- ===========================
+      WASTE CATEGORY DISTRIBUTION
+=========================== -->
+
+<div class="col-lg-6">
+
+<div class="dashboard-card">
+
+<div class="card-header-custom">
+
+<h3>
+
+<i class="fas fa-chart-pie"></i>
+
+Waste Category Distribution
+
+</h3>
+
+</div>
+
+<div class="card-body">
+
+<canvas id="pieChart"></canvas>
+
+<div class="category-list mt-4">
+
+<div class="category-item">
+
+<span class="dot battery"></span>
+
+Battery
+
+<span>{{ category_counts["Battery"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot biological"></span>
+
+Biological
+
+<span>{{ category_counts["Biological"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot cardboard"></span>
+
+Cardboard
+
+<span>{{ category_counts["Cardboard"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot clothes"></span>
+
+Clothes
+
+<span>{{ category_counts["Clothes"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot glass"></span>
+
+Glass
+
+<span>{{ category_counts["Glass"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot metal"></span>
+
+Metal
+
+<span>{{ category_counts["Metal"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot paper"></span>
+
+Paper
+
+<span>{{ category_counts["Paper"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot plastic"></span>
+
+Plastic
+
+<span>{{ category_counts["Plastic"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot shoes"></span>
+
+Shoes
+
+<span>{{ category_counts["Shoes"] }}</span>
+
+</div>
+
+<div class="category-item">
+
+<span class="dot trash"></span>
+
+Trash
+
+<span>{{ category_counts["Trash"] }}</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ===========================
+        RECENT PREDICTIONS
+=========================== -->
+
+<div class="col-lg-6">
+
+<div class="dashboard-card">
+
+<div class="card-header-custom d-flex justify-content-between">
+
+<h3>
+
+<i class="fas fa-history"></i>
+
+Recent Predictions
+
+</h3>
+
+<a href="/history">
+
+View All
+
+</a>
+
+</div>
+
+<div class="card-body recent-body">
+
+{% for item in history %}
+
+<div class="prediction-item">
+
+<img
+src="{{ url_for('static', filename=item.image) }}"
+class="prediction-image"
+alt="{{ item.waste }}">
+
+<div>
+
+<h5>
+
+{{ item.waste }}
+
+</h5>
+
+<p>
+
+Confidence :
+{{ item.confidence }}%
+
+</p>
+
+</div>
+
+<span class="badge bg-success">
+
+High
+
+</span>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ===========================
+      START NEXT SECTION
+=========================== -->
+
+<section class="bottom-section">
+
+<div class="container">
+
+<div class="row">
+
+<!-- ===========================
+      PREDICTION ANALYTICS
+=========================== -->
+
+<div class="row justify-content-center mt-4">
+
+    <div class="col-lg-8">
+
+        <div class="dashboard-card">
+
+            <div class="card-header-custom d-flex justify-content-between align-items-center">
+
+                <h3>
+                    <i class="fas fa-chart-line"></i>
+                    Prediction Analytics
+                </h3>
+
+                <select class="form-select analytics-select">
+                    <option>This Week</option>
+                    <option>This Month</option>
+                    <option>This Year</option>
+                </select>
+
+            </div>
+
+            <div class="card-body">
+
+                <canvas id="lineChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
+            FOOTER
+=========================== -->
+
+
+<div class="text-center">
+
+<p>
+
+© 2026 AI Waste Classification System
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- ===========================
+        PASS DATA TO JS
+=========================== -->
+
+<script>
+
+const wasteLabels = {{ category_counts.keys() | list | tojson }};
+
+const wasteCounts = {{ category_counts.values() | list | tojson }};
+
+const dailyLabels = {{ daily_labels | tojson }};
+
+const dailyCounts = {{ daily_counts | tojson }};
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>

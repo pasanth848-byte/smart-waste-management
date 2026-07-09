@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Waste Classification System</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+</head>
+
+<body>
+
+<!-- ===========================
+        NAVBAR START
+============================ -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="/">
+            <i class="fas fa-recycle"></i>
+            AI Waste Classifier
+        </a>
+
+        <button class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/predict">Predict</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/history">History</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/report">Report</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ===========================
+        HERO SECTION
+============================ -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-8">
+
+                <span class="badge bg-success px-4 py-2 mb-4"></span>
+
+                <h1>
+    
+    <span>Smart Waste Management</span>
+</h1>
+
+                <p>
+                    Upload an image of waste and let Artificial Intelligence
+                    identify whether it is Plastic, Paper, Glass, Metal,
+                    Organic Waste or others with
+                    high accuracy.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="/predict" class="btn btn-success btn-lg">
+                        <i class="fas fa-upload"></i>
+                        Upload Image
+                    </a>
+
+                    <a href="/about" class="btn btn-outline-light btn-lg">
+                        Learn More
+                    </a>
+
+                </div>
+
+                <!-- Statistics -->
+
+                <div class="row justify-content-center mt-5">
+
+                    <div class="col-md-4 col-4">
+
+                        <h2>10+</h2>
+
+                        <p>Waste Categories</p>
+
+                    </div>
+
+                    <div class="col-md-4 col-4">
+
+                        <h2>{{ average_confidence }}%</h2>
+
+                        <p>AI Accuracy</p>
+
+                    </div>
+
+                    <div class="col-md-4 col-4">
+
+                        <h2>{{ total_predictions }}</h2>
+
+                        <p>Images Tested</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================
+        HOW IT WORKS
+============================ -->
+
+<section class="how-it-works py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-title">
+How It Works
+</span>
+
+<h2 class="fw-bold mt-3">
+Three Simple Steps
+</h2>
+
+<p class="text-muted">
+Our AI model makes waste segregation quick and easy.
+</p>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<div class="step-card">
+
+<div class="step-number">
+1
+</div>
+
+<i class="fas fa-cloud-upload-alt fa-4x text-success mb-4"></i>
+
+<h4>
+Upload Image
+</h4>
+
+<p>
+
+Choose a waste image from your device or capture
+using your camera.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="step-card">
+
+<div class="step-number">
+2
+</div>
+
+<i class="fas fa-microchip fa-4x text-primary mb-4"></i>
+
+<h4>
+
+AI Processing
+
+</h4>
+
+<p>
+
+The Deep Learning model analyzes the uploaded
+image and extracts important features.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="step-card">
+
+<div class="step-number">
+3
+</div>
+
+<i class="fas fa-check-circle fa-4x text-warning mb-4"></i>
+
+<h4>
+
+Get Result
+
+</h4>
+
+<p>
+
+Receive waste category, confidence score,
+and disposal recommendation instantly.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        WASTE CATEGORIES
+============================ -->
+
+<section class="categories py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-title">
+
+Waste Categories
+
+</span>
+
+<h2 class="fw-bold mt-3">
+
+Supported Waste Types
+
+</h2>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-bottle-water fa-4x text-primary"></i>
+
+<h4 class="mt-3">
+
+Plastic
+
+</h4>
+
+<p>
+
+Recyclable plastic waste
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-newspaper fa-4x text-warning"></i>
+
+<h4>
+
+Paper
+
+</h4>
+
+<p>
+
+Paper and cardboard
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-wine-bottle fa-4x text-success"></i>
+
+<h4>
+
+Glass
+
+</h4>
+
+<p>
+
+Glass bottles and jars
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-cog fa-4x text-secondary"></i>
+
+<h4>
+
+Metal
+
+</h4>
+
+<p>
+
+Metal cans and scrap
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-leaf fa-4x text-success"></i>
+
+<h4>
+
+Organic
+
+</h4>
+
+<p>
+
+Food and garden waste
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-battery-full fa-4x text-danger"></i>
+
+<h4>
+
+Battery
+
+</h4>
+
+<p>
+
+Hazardous battery waste
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-shirt fa-4x text-info"></i>
+
+<h4>
+
+Clothes
+
+</h4>
+
+<p>
+
+Old garments and textiles
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3 col-sm-6 mb-4">
+
+<div class="category-card">
+
+<i class="fas fa-trash fa-4x text-dark"></i>
+
+<h4>
+
+General Trash
+
+</h4>
+
+<p>
+
+Non-recyclable waste
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ===========================
+        CALL TO ACTION
+============================ -->
+
+<section class="cta py-5">
+
+<div class="container text-center">
+
+<h2 class="fw-bold">
+
+Ready to Classify Waste?
+
+</h2>
+
+<p>
+
+Upload an image and let Artificial Intelligence identify it instantly.
+
+</p>
+
+<a href="/predict"
+class="btn btn-success btn-lg">
+
+Start Prediction
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<div class="text-center">
+
+<p>
+
+© 2026 AI Waste Classification System 
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

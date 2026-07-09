@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>About | AI Waste Classification</title>
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<!-- Font Awesome -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+rel="stylesheet">
+
+<!-- Google Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/about.css') }}">
+
+</head>
+
+<body>
+
+<!-- =========================
+        NAVBAR
+========================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="/">
+
+<i class="fas fa-recycle"></i>
+
+AI Waste Classifier
+
+</a>
+
+<button class="navbar-toggler"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+
+id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/predict">Predict</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="/about">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/dashboard">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/history">History</a>
+</li>
+
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- =========================
+        HERO
+========================= -->
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-12">
+
+                <h1>
+
+
+                    <span>About AI Waste Classifier</span>
+
+                </h1>
+
+                <p>
+
+                    An intelligent waste classification system developed using
+                    Deep Learning to promote proper waste segregation,
+                    improve recycling efficiency.
+
+                </p>
+
+                <a href="/predict" class="btn btn-success btn-lg">
+
+                    Try Prediction
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+        PROJECT OVERVIEW
+========================= -->
+
+<section class="overview">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+
+
+<div class="col-lg-10">
+
+<h2>
+
+Project Overview
+
+</h2>
+
+<p>
+
+The AI Waste Classification System is a web-based application
+that automatically identifies different types of waste using
+Convolutional Neural Networks (CNN). Users simply upload an
+image, and the system predicts the waste category while
+providing the appropriate disposal recommendation.
+
+</p>
+
+<div class="row mt-4">
+
+<div class="col-6">
+
+<div class="overview-card">
+
+<h3>
+
+10+
+
+</h3>
+
+<p>
+
+Waste Classes
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="overview-card">
+
+<h3>
+
+97%
+
+</h3>
+
+<p>
+
+Accuracy
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        PROBLEM STATEMENT
+========================= -->
+
+<section class="problem">
+
+<div class="container">
+
+<div class="section-title">
+
+Problem Statement
+
+</div>
+
+<h2>
+
+Why This Project?
+
+</h2>
+
+<p>
+
+Improper waste segregation is one of the major environmental
+problems. Many people are unable to identify recyclable and
+non-recyclable waste correctly, leading to contamination,
+resource wastage and increased landfill pollution.
+
+Our AI-based waste classification system addresses this issue
+by automatically identifying waste categories from images and
+providing proper disposal recommendations.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- =========================
+        OBJECTIVES
+========================= -->
+
+<section class="objectives">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-title">
+
+Project Objectives
+
+</span>
+
+<h2>
+
+Our Objectives
+
+</h2>
+
+<p>
+
+The main objectives of the AI Waste Classification System.
+
+</p>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-3">
+
+<div class="objective-card">
+
+<i class="fas fa-camera"></i>
+
+<h4>
+
+Image Recognition
+
+</h4>
+
+<p>
+
+Identify waste using Artificial Intelligence from uploaded images.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="objective-card">
+
+<i class="fas fa-recycle"></i>
+
+<h4>
+
+Waste Segregation
+
+</h4>
+
+<p>
+
+Separate recyclable and non-recyclable waste correctly.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="objective-card">
+
+<i class="fas fa-leaf"></i>
+
+<h4>
+
+Environmental Protection
+
+</h4>
+
+<p>
+
+Reduce pollution and improve recycling efficiency.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="objective-card">
+
+<i class="fas fa-globe"></i>
+
+<h4>
+
+Support SDG 12
+
+</h4>
+
+<p>
+
+Promote responsible consumption and production.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        TECHNOLOGIES
+========================= -->
+
+<section class="technology">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-title">
+
+Technologies
+
+</span>
+
+<h2>
+
+Technologies Used
+
+</h2>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="tech-card">
+
+<i class="fab fa-python"></i>
+
+<h4>
+
+Python
+
+</h4>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="tech-card">
+
+<i class="fas fa-brain"></i>
+
+<h4>
+
+TensorFlow
+
+</h4>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="tech-card">
+
+<i class="fab fa-html5"></i>
+
+<h4>
+
+HTML • CSS
+
+</h4>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="tech-card">
+
+<i class="fab fa-bootstrap"></i>
+
+<h4>
+
+Bootstrap
+
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        PROJECT WORKFLOW
+========================= -->
+
+<section class="workflow">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-title">
+
+Workflow
+
+</span>
+
+<h2>
+
+System Workflow
+
+</h2>
+
+</div>
+
+<div class="row text-center">
+
+<div class="col-lg-2">
+
+<div class="workflow-card">
+
+<i class="fas fa-image"></i>
+
+<h5>
+
+Upload
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2">
+
+<div class="workflow-card">
+
+<i class="fas fa-sliders"></i>
+
+<h5>
+
+Preprocess
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2">
+
+<div class="workflow-card">
+
+<i class="fas fa-brain"></i>
+
+<h5>
+
+CNN Model
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2">
+
+<div class="workflow-card">
+
+<i class="fas fa-chart-line"></i>
+
+<h5>
+
+Prediction
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2">
+
+<div class="workflow-card">
+
+<i class="fas fa-recycle"></i>
+
+<h5>
+
+Waste Type
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-lg-2">
+
+<div class="workflow-card">
+
+<i class="fas fa-check-circle"></i>
+
+<h5>
+
+Recommendation
+
+</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        FEATURES
+========================= -->
+
+<section class="about-features">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<span class="section-title">
+
+Features
+
+</span>
+
+<h2>
+
+System Features
+
+</h2>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="feature-box">
+
+<i class="fas fa-upload"></i>
+
+<h4>
+
+Image Upload
+
+</h4>
+
+<p>
+
+Upload waste images from any device.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature-box">
+
+<i class="fas fa-robot"></i>
+
+<h4>
+
+AI Prediction
+
+</h4>
+
+<p>
+
+Deep Learning identifies waste instantly.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature-box">
+
+<i class="fas fa-trash-alt"></i>
+
+<h4>
+
+Disposal Guide
+
+</h4>
+
+<p>
+
+Receive the correct disposal recommendation.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        SDG 12
+========================= -->
+
+<section class="sdg">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+
+<h2>
+
+Supporting Sustainable Development Goal 12
+
+</h2>
+
+<p>
+
+This project contributes to SDG 12 by encouraging
+proper waste segregation, increasing recycling,
+reducing landfill waste and promoting responsible
+consumption through Artificial Intelligence.
+
+</p>
+
+<ul>
+
+<li>✔ Reduce Pollution</li>
+
+<li>✔ Improve Recycling</li>
+
+<li>✔ Smart Waste Management</li>
+
+<li>✔ Environmental Sustainability</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+        CALL TO ACTION
+========================= -->
+
+<section class="about-cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>
+
+Ready to Classify Waste?
+
+</h2>
+
+<p>
+
+Upload an image and let Artificial Intelligence
+identify the waste category instantly.
+
+</p>
+
+<a
+
+href="/predict"
+
+class="btn btn-success btn-lg">
+
+<i class="fas fa-upload"></i>
+
+Start Prediction
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+        FOOTER
+========================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<h3>
+
+<i class="fas fa-recycle"></i>
+
+AI Waste Classifier
+
+</h3>
+
+<p>
+
+An AI-powered waste classification system
+designed to improve recycling efficiency
+and promote sustainable waste management.
+
+</p>
+
+</div>
+
+<div class="col-lg-4">
+
+<h4>
+
+Quick Links
+
+</h4>
+
+<ul class="footer-links">
+
+<li><a href="/">Home</a></li>
+
+<li><a href="/predict">Predict</a></li>
+
+<li><a href="/dashboard">Dashboard</a></li>
+
+<li><a href="/history">History</a></li>
+
+<li><a href="/report">Report</a></li>
+
+
+</ul>
+
+</div>
+
+<div class="col-lg-4">
+
+<h4>
+
+Contact
+
+</h4>
+
+<p>
+
+<i class="fas fa-envelope"></i>
+
+pasanth848@gmail.com
+
+</p>
+
+<p>
+
+<i class="fas fa-phone"></i>
+
++91 6382346950
+
+</p>
+
+<p>
+
+<i class="fas fa-location-dot"></i>
+
+Tamil Nadu, India
+
+</p>
+
+<div class="social-icons">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-twitter"></i></a>
+
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="text-center">
+
+<p>
+
+© 2026 AI Waste Classification System
+
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

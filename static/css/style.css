@@ -1,0 +1,1303 @@
+/* ============================
+   SMART WASTE MANAGEMENT
+   PART 1
+=============================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    overflow-x:hidden;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#16a34a;
+    border-radius:10px;
+}
+
+/* ===========================
+        LAYOUT
+=========================== */
+
+.wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===========================
+        SIDEBAR
+=========================== */
+
+.sidebar{
+
+    width:260px;
+
+    background:#0f9d58;
+
+    color:white;
+
+    min-height:100vh;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    padding:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.logo p{
+
+    opacity:.8;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.sidebar ul li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar ul li a{
+
+    color:white;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:white;
+
+    color:#16a34a;
+
+}
+
+.sidebar ul li.active a{
+
+    background:white;
+
+    color:#16a34a;
+
+    font-weight:600;
+
+}
+
+.sidebar i{
+
+    width:25px;
+
+    text-align:center;
+
+}
+
+/* Green Box */
+
+.green-box{
+
+    margin-top:40px;
+
+    background:#ffffff22;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+}
+
+.green-box h4{
+
+    margin-bottom:10px;
+
+}
+
+/* ===========================
+        MAIN
+=========================== */
+
+.main{
+
+    margin-left:260px;
+
+    width:calc(100% - 260px);
+
+    padding:30px;
+
+}
+
+/* ===========================
+        TOPBAR
+=========================== */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.search-box{
+
+    background:white;
+
+    width:450px;
+
+    border-radius:40px;
+
+    padding:12px 20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    width:90%;
+
+    margin-left:10px;
+
+}
+
+.right-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.right-menu i{
+
+    font-size:22px;
+
+    color:#444;
+
+    cursor:pointer;
+
+}
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#16a34a;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:22px;
+
+}
+
+/* ===========================
+      WELCOME
+=========================== */
+
+.welcome{
+
+    margin-bottom:30px;
+
+}
+
+.welcome h2{
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+.welcome p{
+
+    color:#777;
+
+}
+
+/* ===========================
+      STAT CARDS
+=========================== */
+
+.stat-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stat-card i{
+
+    font-size:45px;
+
+    color:#16a34a;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card h3{
+
+    font-size:35px;
+
+    font-weight:700;
+
+}
+
+.stat-card p{
+
+    color:#777;
+
+}
+
+.blue i{
+
+    color:#2563eb;
+
+}
+
+.orange i{
+
+    color:#f59e0b;
+
+}
+
+.red i{
+
+    color:#ef4444;
+
+}
+
+/* ===========================
+        CARDS
+=========================== */
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.card-header{
+
+    border-radius:20px 20px 0 0 !important;
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+.card-body{
+
+    padding:25px;
+
+}
+
+/* ===========================
+      IMAGE
+=========================== */
+
+.card img{
+
+    border-radius:15px;
+
+    max-height:300px;
+
+    object-fit:cover;
+
+}
+
+/* ===========================
+     PROGRESS
+=========================== */
+
+.progress{
+
+    height:25px;
+
+    border-radius:20px;
+
+}
+
+.progress-bar{
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+/* ==========================================
+        DASHBOARD CARDS
+========================================== */
+
+.dashboard-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+    margin-bottom:25px;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.dashboard-card h4{
+
+    font-weight:600;
+
+    color:#198754;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
+        BUTTONS
+========================================== */
+
+.btn{
+
+    border-radius:50px;
+
+    transition:.3s;
+
+    font-weight:500;
+
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.btn-success{
+
+    background:#16a34a;
+
+    border:none;
+
+}
+
+.btn-primary{
+
+    background:#2563eb;
+
+    border:none;
+
+}
+
+.btn-warning{
+
+    border:none;
+
+}
+
+/* ==========================================
+        PREDICTION CARD
+========================================== */
+
+.prediction-box{
+
+    text-align:center;
+
+}
+
+.prediction-box h1{
+
+    color:#16a34a;
+
+    font-size:55px;
+
+    font-weight:bold;
+
+}
+
+.confidence{
+
+    font-size:18px;
+
+    color:#555;
+
+}
+
+/* ==========================================
+        DISPOSAL CARD
+========================================== */
+
+.dispose-card{
+
+    background:#f0fff4;
+
+    border-left:6px solid #16a34a;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.dispose-card h5{
+
+    color:#16a34a;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+        ENVIRONMENT CARD
+========================================== */
+
+.tip-card{
+
+    background:#fff8dc;
+
+    border-left:6px solid orange;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.tip-card h5{
+
+    color:#ff9800;
+
+}
+
+/* ==========================================
+        AI DETAILS
+========================================== */
+
+.ai-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.ai-card table{
+
+    width:100%;
+
+}
+
+.ai-card td{
+
+    padding:10px;
+
+}
+
+/* ==========================================
+        CHART
+========================================== */
+
+.chart-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.chart-card canvas{
+
+    width:100% !important;
+
+}
+
+/* ==========================================
+        TABLE
+========================================== */
+
+.table{
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+.table thead{
+
+    background:#198754;
+
+    color:white;
+
+}
+
+.table tbody tr:hover{
+
+    background:#f2f2f2;
+
+}
+
+/* ==========================================
+        SEARCH
+========================================== */
+
+.search-input{
+
+    border-radius:50px;
+
+    padding:12px;
+
+    border:2px solid #198754;
+
+}
+
+.search-input:focus{
+
+    outline:none;
+
+}
+
+/* ==========================================
+        ABOUT PAGE
+========================================== */
+
+.about-box{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.about-box h2{
+
+    color:#198754;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+        REPORT PAGE
+========================================== */
+
+.report-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+.report-card h2{
+
+    color:#198754;
+
+}
+
+/* ==========================================
+        ICONS
+========================================== */
+
+.icon-circle{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    color:white;
+
+    background:#198754;
+
+}
+
+/* ==========================================
+        FOOTER
+========================================== */
+
+footer{
+
+    background:#198754;
+
+    color:white;
+
+    text-align:center;
+
+    padding:18px;
+
+    margin-top:40px;
+
+}
+
+/* ==========================================
+        ANIMATION
+========================================== */
+
+.fade-up{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+        CARD ANIMATION
+========================================== */
+
+.card{
+
+animation:fadeUp .6s;
+
+}
+
+/* ==========================================
+        BADGES
+========================================== */
+
+.badge{
+
+font-size:14px;
+
+padding:8px 15px;
+
+}
+
+/* ==========================================
+        IMAGE
+========================================== */
+
+.preview-image{
+
+width:100%;
+
+border-radius:20px;
+
+transition:.4s;
+
+}
+
+.preview-image:hover{
+
+transform:scale(1.03);
+
+}
+
+/* ==========================================
+        PROGRESS BAR
+========================================== */
+
+.progress{
+
+background:#ddd;
+
+}
+
+.progress-bar{
+
+font-weight:bold;
+
+}
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+@media(max-width:991px){
+
+.sidebar{
+
+width:80px;
+
+}
+
+.sidebar h2,
+
+.sidebar p,
+
+.sidebar ul li a span,
+
+.green-box{
+
+display:none;
+
+}
+
+.main{
+
+margin-left:80px;
+
+width:calc(100% - 80px);
+
+}
+
+.search-box{
+
+width:250px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.topbar{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.search-box{
+
+width:100%;
+
+}
+
+.main{
+
+padding:20px;
+
+}
+
+.stat-card{
+
+margin-bottom:20px;
+
+}
+
+}
+/* ==========================================
+        PART 3 - PREMIUM UI
+========================================== */
+
+/* Glass Effect */
+
+.glass-card{
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* Floating Animation */
+
+.float-card{
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* Gradient Cards */
+
+.gradient-green{
+
+background:linear-gradient(135deg,#16a34a,#22c55e);
+
+color:white;
+
+}
+
+.gradient-blue{
+
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+color:white;
+
+}
+
+.gradient-orange{
+
+background:linear-gradient(135deg,#f59e0b,#fbbf24);
+
+color:white;
+
+}
+
+.gradient-red{
+
+background:linear-gradient(135deg,#ef4444,#f87171);
+
+color:white;
+
+}
+
+/* Dashboard Numbers */
+
+.stat-card h3{
+
+font-size:42px;
+
+font-weight:700;
+
+margin-top:10px;
+
+}
+
+/* Prediction Result */
+
+.result-box{
+
+text-align:center;
+
+padding:30px;
+
+}
+
+.result-box h1{
+
+font-size:55px;
+
+color:#16a34a;
+
+font-weight:bold;
+
+}
+
+/* Upload Area */
+
+.upload-box{
+
+border:3px dashed #16a34a;
+
+border-radius:20px;
+
+padding:40px;
+
+text-align:center;
+
+background:white;
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.upload-box:hover{
+
+background:#f0fff4;
+
+}
+
+/* Profile */
+
+.avatar{
+
+transition:.3s;
+
+}
+
+.avatar:hover{
+
+transform:rotate(15deg) scale(1.1);
+
+}
+
+/* Buttons */
+
+.btn-success{
+
+background:linear-gradient(135deg,#16a34a,#22c55e);
+
+}
+
+.btn-primary{
+
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+}
+
+/* Card Hover */
+
+.card:hover{
+
+box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+}
+
+/* Sidebar Hover */
+
+.sidebar ul li:hover{
+
+transform:translateX(5px);
+
+transition:.3s;
+
+}
+
+/* Table */
+
+.table tbody tr{
+
+transition:.3s;
+
+}
+
+.table tbody tr:hover{
+
+transform:scale(1.01);
+
+}
+
+/* Progress Animation */
+
+.progress-bar{
+
+animation:progressAnimation 2s;
+
+}
+
+@keyframes progressAnimation{
+
+from{
+
+width:0;
+
+}
+
+}
+
+/* Footer */
+
+footer{
+
+font-size:15px;
+
+letter-spacing:1px;
+
+}
+
+/* Dark Mode */
+
+.dark-mode{
+
+background:#121212;
+
+color:white;
+
+}
+
+.dark-mode .card{
+
+background:#1f1f1f;
+
+color:white;
+
+}
+
+.dark-mode .sidebar{
+
+background:#0b6b3a;
+
+}
+
+.dark-mode .topbar{
+
+background:#1f1f1f;
+
+}
+
+.dark-mode input{
+
+background:#333;
+
+color:white;
+
+border:none;
+
+}
+
+/* Notification Badge */
+
+.notification{
+
+position:relative;
+
+}
+
+.notification::after{
+
+content:"3";
+
+position:absolute;
+
+top:-8px;
+
+right:-8px;
+
+background:red;
+
+color:white;
+
+width:18px;
+
+height:18px;
+
+border-radius:50%;
+
+font-size:11px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* Custom Scroll */
+
+.history-table{
+
+max-height:450px;
+
+overflow:auto;
+
+}
+
+/* Dashboard Background */
+
+.dashboard-bg{
+
+background:linear-gradient(
+
+135deg,
+
+#f4fff7,
+
+#ffffff,
+
+#eefaf0
+
+);
+
+}
+
+/* Icon Box */
+
+.icon-box{
+
+width:80px;
+
+height:80px;
+
+border-radius:20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:35px;
+
+background:#16a34a;
+
+color:white;
+
+margin:auto;
+
+}
+
+/* Mobile */
+
+@media(max-width:576px){
+
+.sidebar{
+
+display:none;
+
+}
+
+.main{
+
+margin-left:0;
+
+width:100%;
+
+}
+
+.hero h1{
+
+font-size:30px;
+
+}
+
+.stat-card{
+
+margin-bottom:20px;
+
+}
+
+}

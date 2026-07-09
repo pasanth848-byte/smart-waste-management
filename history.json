@@ -1,0 +1,114 @@
+[
+    {
+        "image": "uploads/plastic_24.jpg",
+        "waste": "Plastic",
+        "confidence": 23.29,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 03:56 PM"
+    },
+    {
+        "image": "uploads/plastic_977.jpg",
+        "waste": "Glass",
+        "confidence": 28.1,
+        "recommendation": "Green Recycling Bin",
+        "datetime": "06-07-2026 04:23 PM"
+    },
+    {
+        "image": "uploads/plastic_24.jpg",
+        "waste": "Plastic",
+        "confidence": 23.29,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 04:36 PM"
+    },
+    {
+        "image": "uploads/biological_73.jpg",
+        "waste": "Cardboard",
+        "confidence": 38.1,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 05:06 PM"
+    },
+    {
+        "image": "uploads/biological_9.jpg",
+        "waste": "Clothes",
+        "confidence": 58.52,
+        "recommendation": "Reuse / Donation Bin",
+        "datetime": "06-07-2026 05:08 PM"
+    },
+    {
+        "image": "uploads/biological_9.jpg",
+        "waste": "Clothes",
+        "confidence": 58.52,
+        "recommendation": "Reuse / Donation Bin",
+        "datetime": "06-07-2026 05:09 PM"
+    },
+    {
+        "image": "uploads/biological_73.jpg",
+        "waste": "Cardboard",
+        "confidence": 38.1,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 05:23 PM"
+    },
+    {
+        "image": "uploads/biological_73.jpg",
+        "waste": "Cardboard",
+        "confidence": 38.1,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 05:28 PM"
+    },
+    {
+        "image": "uploads/plastic_24.jpg",
+        "waste": "Plastic",
+        "confidence": 23.29,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 07:23 PM"
+    },
+    {
+        "image": "uploads/clothes_965.jpg",
+        "waste": "Clothes",
+        "confidence": 100.0,
+        "recommendation": "Reuse / Donation Bin",
+        "datetime": "06-07-2026 08:18 PM"
+    },
+    {
+        "image": "uploads/biological_73.jpg",
+        "waste": "Biological",
+        "confidence": 99.89,
+        "recommendation": "Brown Organic Bin",
+        "datetime": "06-07-2026 08:19 PM"
+    },
+    {
+        "image": "uploads/cardboard_944.jpg",
+        "waste": "Cardboard",
+        "confidence": 100.0,
+        "recommendation": "Blue Recycling Bin",
+        "datetime": "06-07-2026 08:21 PM"
+    },
+    {
+        "image": "uploads/glass_97.jpg",
+        "waste": "Glass",
+        "confidence": 99.85,
+        "recommendation": "Green Recycling Bin",
+        "datetime": "06-07-2026 09:16 PM"
+    },
+    {
+        "image": "uploads/trash_85.jpg",
+        "waste": "Trash",
+        "confidence": 99.28,
+        "recommendation": "Black Waste Bin",
+        "datetime": "08-07-2026 08:58 AM"
+    },
+    {
+        "image": "uploads/Screenshot_2026-07-08_101307.png",
+        "waste": "Clothes",
+        "confidence": 49.3,
+        "recommendation": "Reuse / Donation Bin",
+        "datetime": "08-07-2026 10:13 AM"
+    },
+    {
+        "image": "uploads/biological_583.jpg",
+        "waste": "Biological",
+        "confidence": 99.56,
+        "recommendation": "Brown Organic Bin",
+        "datetime": "09-07-2026 08:32 AM"
+    }
+]

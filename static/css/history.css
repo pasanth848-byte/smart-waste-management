@@ -1,0 +1,1024 @@
+/*======================================================
+                    GOOGLE FONT
+======================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*======================================================
+                    GLOBAL
+======================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#f5f9f6;
+
+    color:#222;
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+img{
+
+    max-width:100%;
+
+}
+
+/*======================================================
+                    NAVBAR
+======================================================*/
+
+.navbar{
+
+    background:rgba(8,28,21,.92);
+
+    backdrop-filter:blur(15px);
+
+    padding:15px 0;
+
+}
+
+.navbar-brand{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.navbar-brand i{
+
+    color:#39d353;
+
+}
+
+.nav-link{
+
+    color:white !important;
+
+    margin-left:20px;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#39d353 !important;
+
+}
+
+/*======================================================
+                    HERO
+======================================================*/
+
+.history-hero{
+
+    min-height:30vh;
+
+    background:linear-gradient(135deg,#081c15,#14532d,#198754);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:120px-0-70px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.history-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    background:#39d353;
+
+    right:-180px;
+
+    top:-90px;
+
+    opacity:.10;
+
+}
+
+.history-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:white;
+
+    left:-100px;
+
+    bottom:-100px;
+
+    opacity:.05;
+
+}
+
+.history-hero h1{
+
+    font-size:56px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.history-hero p{
+
+    
+    font-size:19px;
+
+    color:#e8f5ee;
+
+    max-width:700px;
+
+    margin:auto;
+
+
+}
+
+.hero-image{
+
+    width:430px;
+
+    animation:floatImage 5s ease-in-out infinite;
+
+}
+
+/*======================================================
+                HISTORY SECTION
+======================================================*/
+
+.history-section{
+
+    padding:90px 0;
+
+}
+
+/*======================================================
+                OVERVIEW CARD
+======================================================*/
+
+.overview-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    height:100%;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.overview-card h3{
+
+    font-size:26px;
+
+    margin-bottom:25px;
+
+    color:#14532d;
+
+    font-weight:700;
+
+}
+
+.overview-item{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.overview-item i{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#198754;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:25px;
+
+    margin-right:20px;
+
+}
+
+.overview-item h4{
+
+    font-size:30px;
+
+    color:#14532d;
+
+    font-weight:700;
+
+}
+
+.overview-item p{
+
+    margin:0;
+
+    color:#666;
+
+}
+
+/*======================================================
+                HISTORY CARD
+======================================================*/
+
+.history-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    height:100%;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.history-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.history-top h3{
+
+    font-size:30px;
+
+    color:#14532d;
+
+    font-weight:700;
+
+}
+
+.history-tools{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.history-tools input{
+
+    width:260px;
+
+    border-radius:12px;
+
+}
+
+.history-tools select{
+
+    width:180px;
+
+    border-radius:12px;
+
+}
+
+/*======================================================
+                    ANIMATION
+======================================================*/
+
+@keyframes floatImage{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+/*======================================================
+                HISTORY TABLE
+======================================================*/
+
+.history-table{
+
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0 12px;
+
+}
+
+.history-table thead th{
+
+    background:#198754;
+
+    color:white;
+
+    padding:18px;
+
+    font-weight:600;
+
+    border:none;
+
+}
+
+.history-table tbody tr{
+
+    background:#ffffff;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+}
+
+.history-table tbody tr:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.10);
+
+}
+
+.history-table td{
+
+    padding:18px;
+
+    vertical-align:middle;
+
+    border:none;
+
+}
+
+/*======================================================
+                HISTORY IMAGE
+======================================================*/
+
+.history-image{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:3px solid #198754;
+
+    transition:.3s;
+
+}
+
+.history-image:hover{
+
+    transform:scale(1.08);
+
+}
+
+/*======================================================
+                BADGES
+======================================================*/
+
+.badge{
+
+    font-size:14px;
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+
+.badge i{
+
+    margin-right:6px;
+
+}
+
+/*======================================================
+                BUTTONS
+======================================================*/
+
+.history-buttons{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.history-buttons .btn{
+
+    padding:14px 28px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.history-buttons .btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*======================================================
+                SUMMARY
+======================================================*/
+
+.history-summary{
+
+    padding:90px 0;
+
+    background:#f8fbf9;
+
+}
+
+.summary-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:40px 30px;
+
+    transition:.4s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    height:100%;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#198754;
+
+    color:white;
+
+}
+
+.summary-card i{
+
+    font-size:55px;
+
+    color:#198754;
+
+    margin-bottom:20px;
+
+}
+
+.summary-card:hover i{
+
+    color:white;
+
+}
+
+.summary-card h3{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.summary-card p{
+
+    line-height:1.8;
+
+}
+
+/*======================================================
+                EMPTY HISTORY
+======================================================*/
+
+.history-table h4{
+
+    margin-top:20px;
+
+    font-weight:700;
+
+    color:#14532d;
+
+}
+
+.history-table p{
+
+    color:#666;
+
+}
+
+/*======================================================
+                SEARCH INPUT
+======================================================*/
+
+.history-tools input:focus,
+
+.history-tools select:focus{
+
+    border-color:#198754;
+
+    box-shadow:0 0 10px rgba(25,135,84,.25);
+
+}
+/*======================================================
+                    FOOTER
+======================================================*/
+
+.footer{
+
+    background:#081c15;
+
+    color:white;
+
+    padding:70px 0 20px;
+
+}
+
+.footer h3{
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.footer h4{
+
+    margin-bottom:20px;
+
+    font-weight:600;
+
+}
+
+.footer p{
+
+    color:#d8d8d8;
+
+    line-height:1.8;
+
+}
+
+.footer-links{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.footer-links li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-links li a{
+
+    color:#d8d8d8;
+
+    transition:.3s;
+
+}
+
+.footer-links li a:hover{
+
+    color:#39d353;
+
+    padding-left:8px;
+
+}
+
+.footer hr{
+
+    border-color:#2d6a4f;
+
+    margin:40px 0 20px;
+
+}
+
+/*======================================================
+                    SCROLLBAR
+======================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf7ef;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#198754;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#146c43;
+
+}
+
+/*======================================================
+                    FADE ANIMATION
+======================================================*/
+
+.fade-up{
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.zoom{
+
+    animation:zoomIn 1s ease;
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.rotate{
+
+    animation:rotateIcon 8s linear infinite;
+
+}
+
+@keyframes rotateIcon{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*======================================================
+                    HOVER EFFECTS
+======================================================*/
+
+.history-card{
+
+    transition:.4s;
+
+}
+
+.history-card:hover{
+
+    box-shadow:0 25px 55px rgba(0,0,0,.15);
+
+}
+
+.overview-card{
+
+    transition:.4s;
+
+}
+
+.overview-card:hover{
+
+    box-shadow:0 25px 55px rgba(0,0,0,.15);
+
+}
+
+.summary-card{
+
+    transition:.4s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+button{
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+img{
+
+    transition:.4s;
+
+}
+
+/*======================================================
+                    RESPONSIVE
+======================================================*/
+
+@media(max-width:992px){
+
+.history-hero{
+
+padding-top:120px;
+
+text-align:center;
+
+}
+
+.history-hero h1{
+
+font-size:46px;
+
+}
+
+.hero-image{
+
+width:320px;
+
+margin-top:40px;
+
+}
+
+.overview-card{
+
+position:static;
+
+margin-bottom:30px;
+
+}
+
+.history-top{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.history-tools{
+
+width:100%;
+
+margin-top:20px;
+
+flex-direction:column;
+
+}
+
+.history-tools input,
+
+.history-tools select{
+
+width:100%;
+
+}
+
+.footer{
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.history-hero h1{
+
+font-size:36px;
+
+}
+
+.history-hero p{
+
+font-size:16px;
+
+}
+
+.history-table{
+
+font-size:14px;
+
+}
+
+.history-image{
+
+width:60px;
+
+height:60px;
+
+}
+
+.history-buttons{
+
+flex-direction:column;
+
+}
+
+.history-buttons .btn{
+
+width:100%;
+
+}
+
+.summary-card{
+
+margin-bottom:25px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.navbar-brand{
+
+font-size:22px;
+
+}
+
+.history-hero{
+
+min-height:50vh;
+
+}
+
+.history-hero h1{
+
+font-size:30px;
+
+}
+
+.hero-image{
+
+width:240px;
+
+}
+
+.overview-card{
+
+padding:20px;
+
+}
+
+.history-card{
+
+padding:20px;
+
+}
+
+.footer h3{
+
+font-size:24px;
+
+}
+
+.footer h4{
+
+margin-top:30px;
+
+}
+
+}
