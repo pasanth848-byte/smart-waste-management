@@ -13,6 +13,7 @@ if not os.path.exists(Config.MODEL_PATH):
 
 model = load_model(Config.MODEL_PATH)
 
+
 def predict_waste(image_path):
     """
     Predict the waste category from an image.

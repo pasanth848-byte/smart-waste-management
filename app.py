@@ -44,7 +44,16 @@ def save_history(history):
 # -----------------------------
 # Load Trained Model
 # -----------------------------
-model = load_model("waste_classifier.h5")
+import gdown
+
+MODEL_PATH = "waste_classifier.h5"
+MODEL_URL = "https://drive.google.com/uc?id=1pj9311xhC79w2-Ah_CF8GpNq1F2a2zoj"
+
+if not os.path.exists(MODEL_PATH):
+    print("Downloading AI model...")
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+
+model = load_model(MODEL_PATH)
 
 # Class Names (same order as your training dataset)
 class_names = [
