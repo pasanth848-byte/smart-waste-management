@@ -2,9 +2,7 @@ from flask import Flask, render_template, request, redirect
 import os
 import json
 from datetime import datetime
-import numpy as np
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+from predict import predict_waste
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -41,19 +39,6 @@ def save_history(history):
 
         json.dump(history, file, indent=4)
 
-# -----------------------------
-# Load Trained Model
-# -----------------------------
-import gdown
-
-MODEL_PATH = "waste_classifier.h5"
-MODEL_URL = "https://drive.google.com/uc?id=1pj9311xhC79w2-Ah_CF8GpNq1F2a2zoj"
-
-if not os.path.exists(MODEL_PATH):
-    print("Downloading AI model...")
-    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
-
-model = load_model(MODEL_PATH)
 
 # Class Names (same order as your training dataset)
 class_names = [
@@ -281,27 +266,10 @@ def predict():
 
         file.save(filepath)
 
-        # -----------------------------
-        # Image Preprocessing
-        # -----------------------------
-        img = image.load_img(filepath, target_size=(224, 224))
-
-        img_array = image.img_to_array(img)
-
-        img_array = np.expand_dims(img_array, axis=0)
-
-        img_array = img_array / 255.0
-
-        # -----------------------------
-        # Prediction
-        # -----------------------------
-        prediction = model.predict(img_array)
-
-        predicted_index = np.argmax(prediction)
-
-        confidence = round(float(np.max(prediction) * 100), 2)
-
-        waste_type = class_names[predicted_index]
+       # -----------------------------
+       # Prediction
+       # -----------------------------
+        waste_type, confidence, recommended_bin = predict_waste(filepath)
 
         # -----------------------------
         # Save Prediction to History
@@ -316,7 +284,7 @@ def predict():
 
             "confidence": confidence,
 
-            "recommendation": recommendation[waste_type],
+           "recommendation": recommended_bin,
 
             "datetime": datetime.now().strftime("%d-%m-%Y %I:%M %p")
 
@@ -332,9 +300,10 @@ def predict():
             image_path="/" + filepath.replace("\\", "/"),
             prediction=waste_type.title(),
             confidence=confidence,
-            recommendation=recommendation[waste_type],
-            description=description[waste_type],
-            tip=tips[waste_type]
+            recommendation=recommended_bin,
+            description=description[waste_type.lower()],
+            description=description[waste_type.lower()],
+            tip=tips[waste_type.lower()]
 )
 
     return render_template("predict.html")
@@ -344,4 +313,4 @@ def predict():
 # Run Flask
 # -----------------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)                                     

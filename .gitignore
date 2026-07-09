@@ -17,6 +17,8 @@ reports/
 # Database
 *.db
 
-# Large AI model
+# Ignore old AI model
 *.h5
+
+# Ignore Keras model
 *.keras
