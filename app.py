@@ -302,7 +302,6 @@ def predict():
             confidence=confidence,
             recommendation=recommended_bin,
             description=description[waste_type.lower()],
-            description=description[waste_type.lower()],
             tip=tips[waste_type.lower()]
 )
 
