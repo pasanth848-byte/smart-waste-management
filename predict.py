@@ -1,16 +1,9 @@
-import os
-import gdown
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from config import Config
 
-MODEL_URL = "https://drive.google.com/uc?id=1pj9311xhC79w2-Ah_CF8GpNq1F2a2zoj"
-
-if not os.path.exists(Config.MODEL_PATH):
-    print("Downloading AI model...")
-    gdown.download(MODEL_URL, Config.MODEL_PATH, quiet=False)
-
+# Load the trained model only once
 model = load_model(Config.MODEL_PATH)
 
 

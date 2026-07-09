@@ -44,7 +44,7 @@ def save_history(history):
 # -----------------------------
 # Load Trained Model
 # -----------------------------
-from predict import predict_waste
+model = load_model("waste_classifier.h5")
 
 # Class Names (same order as your training dataset)
 class_names = [
@@ -335,4 +335,4 @@ def predict():
 # Run Flask
 # -----------------------------
 if __name__ == "__main__":
-    app.run(debug=True)                                     
+    app.run(debug=True)
