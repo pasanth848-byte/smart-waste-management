@@ -22,7 +22,7 @@ class Config:
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
 
     # Model Path
-    MODEL_PATH = "waste_classifier.tflite"
+    MODEL_PATH = "waste_classifier.h5"
 
     # Image Size (same as training)
     IMAGE_SIZE = (224, 224)

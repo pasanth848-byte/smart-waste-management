@@ -1,31 +1,50 @@
+import os
+import gdown
 import numpy as np
-import tensorflow as tf
+from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from config import Config
 
-# Load TensorFlow Lite model
-interpreter = tf.lite.Interpreter(model_path=Config.MODEL_PATH)
-interpreter.allocate_tensors()
+MODEL_URL = "https://drive.google.com/uc?id=1pj9311xhC79w2-Ah_CF8GpNq1F2a2zoj"
 
-input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_details()
+if not os.path.exists(Config.MODEL_PATH):
+    print("Downloading AI model...")
+    gdown.download(MODEL_URL, Config.MODEL_PATH, quiet=False)
+
+model = load_model(Config.MODEL_PATH)
 
 
 def predict_waste(image_path):
+    """
+    Predict the waste category from an image.
 
+    Parameters:
+        image_path (str): Path to the uploaded image.
+
+    Returns:
+        tuple:
+            waste_type (str)
+            confidence (float)
+            recommendation (str)
+    """
+
+    # Load image
     img = image.load_img(
         image_path,
         target_size=Config.IMAGE_SIZE
     )
 
+    # Convert image to array
     img_array = image.img_to_array(img)
+
+    # Add batch dimension
     img_array = np.expand_dims(img_array, axis=0)
-    img_array = img_array.astype(np.float32) / 255.0
 
-    interpreter.set_tensor(input_details[0]["index"], img_array)
-    interpreter.invoke()
+    # Normalize image
+    img_array = img_array / 255.0
 
-    predictions = interpreter.get_tensor(output_details[0]["index"])[0]
+    # Predict
+    predictions = model.predict(img_array, verbose=0)
 
     predicted_index = np.argmax(predictions)
 

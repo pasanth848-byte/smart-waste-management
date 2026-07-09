@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, redirect
 import os
 import json
 from datetime import datetime
-from predict import predict_waste
+import numpy as np
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -39,6 +41,10 @@ def save_history(history):
 
         json.dump(history, file, indent=4)
 
+# -----------------------------
+# Load Trained Model
+# -----------------------------
+from predict import predict_waste
 
 # Class Names (same order as your training dataset)
 class_names = [
@@ -266,10 +272,27 @@ def predict():
 
         file.save(filepath)
 
-       # -----------------------------
-       # Prediction
-       # -----------------------------
-        waste_type, confidence, recommended_bin = predict_waste(filepath)
+        # -----------------------------
+        # Image Preprocessing
+        # -----------------------------
+        img = image.load_img(filepath, target_size=(224, 224))
+
+        img_array = image.img_to_array(img)
+
+        img_array = np.expand_dims(img_array, axis=0)
+
+        img_array = img_array / 255.0
+
+        # -----------------------------
+        # Prediction
+        # -----------------------------
+        prediction = model.predict(img_array)
+
+        predicted_index = np.argmax(prediction)
+
+        confidence = round(float(np.max(prediction) * 100), 2)
+
+        waste_type = class_names[predicted_index]
 
         # -----------------------------
         # Save Prediction to History
@@ -284,7 +307,7 @@ def predict():
 
             "confidence": confidence,
 
-           "recommendation": recommended_bin,
+            "recommendation": recommendation[waste_type],
 
             "datetime": datetime.now().strftime("%d-%m-%Y %I:%M %p")
 
@@ -300,9 +323,9 @@ def predict():
             image_path="/" + filepath.replace("\\", "/"),
             prediction=waste_type.title(),
             confidence=confidence,
-            recommendation=recommended_bin,
-            description=description[waste_type.lower()],
-            tip=tips[waste_type.lower()]
+            recommendation=recommendation[waste_type],
+            description=description[waste_type],
+            tip=tips[waste_type]
 )
 
     return render_template("predict.html")
