@@ -44,7 +44,7 @@ def save_history(history):
 # -----------------------------
 # Load Trained Model
 # -----------------------------
-model = load_model("waste_classifier.h5")
+model = load_model("waste_classifier..tflite")
 
 # Class Names (same order as your training dataset)
 class_names = [
